@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8f7f1">
+    <meta name="description" content="Explore hand-picked roles and find your next opportunity with JobFinder.">
+    <title>JobFinder | Find work that moves you</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#home" aria-label="JobFinder home">
+            <span class="brand-mark" aria-hidden="true">J</span>
+            <span>jobfinder<span class="brand-period">.</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a class="nav-link active" href="#jobs">Find a job</a>
+            <a class="nav-link" href="#about">Our approach</a>
+        </nav>
+        <a class="header-action" href="#jobs">Browse openings <span aria-hidden="true">&rarr;</span></a>
+    </header>
+
+    <main>
+        <section class="hero" id="home" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <p class="eyebrow"><span class="eyebrow-dot"></span> A BETTER WAY TO FIND WHAT'S NEXT</p>
+                <h1 id="hero-title">Your next move<br><span>starts here.</span></h1>
+                <p class="hero-copy">Good people. Thoughtful teams. Work that gives you room to grow.</p>
+                <div class="hero-proof">
+                    <span class="proof-avatars" aria-hidden="true"><i>R</i><i>A</i><i>M</i></span>
+                    <span><strong>1,200+</strong> people found their next step</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img class="hero-image" src="NextMove.jpe" alt="A team sharing ideas around a laptop">
+                <div class="hero-note"><span class="note-spark" aria-hidden="true">✳</span><span>Good work is out there.<br><strong>Let's find yours.</strong></span></div>
+                <span class="hero-image-index" aria-hidden="true">01 / 03</span>
+            </div>
+        </section>
+
+        <section class="search-section" aria-label="Search jobs">
+            <form class="search-box" id="searchForm">
+                <label class="search-field">
+                    <span>WHAT</span>
+                    <input type="search" id="searchInput" placeholder="Job title or company" autocomplete="off">
+                </label>
+                <span class="field-divider" aria-hidden="true"></span>
+                <label class="search-field location-field">
+                    <span>WHERE</span>
+                    <input type="search" id="locationInput" placeholder="City or region" autocomplete="off">
+                </label>
+                <button class="search-button" type="submit"><span class="search-icon" aria-hidden="true"></span> Search jobs</button>
+            </form>
+            <p class="popular-searches"><span>Popular:</span> <button type="button" class="quick-search" data-search="Developer">Developer</button><button type="button" class="quick-search" data-search="Intern">Internships</button><button type="button" class="quick-search" data-location="Hyderabad">Hyderabad</button></p>
+        </section>
+
+        <section class="jobs-section" id="jobs" aria-labelledby="jobs-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">THE LATEST OPPORTUNITIES</p>
+                    <h2 id="jobs-title">Find your fit<span class="heading-period">.</span></h2>
+                </div>
+                <label class="filter-control">
+                    <span>Job type</span>
+                    <select id="jobTypeFilter" aria-label="Filter by job type">
+                        <option value="">All job types</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Part-time">Part-time</option>
+                    </select>
+                </label>
+            </div>
+            <div class="results-line"><span id="resultCount" aria-live="polite">6 opportunities</span><span>Curated for your next move</span></div>
+            <div id="jobList" class="job-list"></div>
+            <div id="noResults" class="empty-state" hidden>
+                <span class="empty-mark" aria-hidden="true">?</span>
+                <h3>No roles found just yet</h3>
+                <p>Try a different title, location, or job type.</p>
+                <button type="button" id="clearSearch">Clear search</button>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-stamp" aria-hidden="true">JF<span>•</span></div>
+            <div>
+                <p class="section-kicker">A LITTLE ABOUT US</p>
+                <h2>Work should move<br>you <span>forward.</span></h2>
+            </div>
+            <p class="about-copy">JobFinder brings promising teams and thoughtful candidates a little closer. Browse real openings, compare the details, and take the next step on your terms.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">J</span><span>jobfinder<span class="brand-period">.</span></span></a>
+        <p>Find good work. Keep growing.</p>
+        <span>&copy; 2026 JobFinder</span>
+    </footer>
+
+    <dialog class="application-dialog" id="applicationDialog" aria-labelledby="applicationTitle">
+        <form class="application-form" id="applicationForm">
+            <div class="application-heading">
+                <div>
+                    <p class="section-kicker">TAKE THE NEXT STEP</p>
+                    <h2 id="applicationTitle">Apply for this role<span class="heading-period">.</span></h2>
+                    <p class="application-role" id="applicationRole"></p>
+                </div>
+                <button class="dialog-close" id="closeApplication" type="button" aria-label="Close application form">&times;</button>
+            </div>
+            <fieldset class="profile-fields">
+                <legend>Your details</legend>
+                <p class="form-hint">Your browser may fill these from your saved profile.</p>
+                <div class="profile-grid">
+                    <label class="form-field">Name<input name="name" type="text" autocomplete="name" required></label>
+                    <label class="form-field">Email<input name="email" type="email" autocomplete="email" required></label>
+                    <label class="form-field full-field">Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+                </div>
+            </fieldset>
+            <div class="form-field resume-field">
+                <span class="field-label">Resume / CV <span>PDF, DOC, or DOCX up to 5 MB</span></span>
+                <label class="resume-dropzone" id="resumeDropzone" for="resumeFile" tabindex="0">
+                    <span class="upload-mark" aria-hidden="true">+</span>
+                    <span id="resumePrompt"><strong>Choose a file</strong> or drag it here</span>
+                    <input id="resumeFile" name="resume" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+                </label>
+                <p class="resume-error" id="resumeError" role="alert" hidden></p>
+            </div>
+            <label class="form-field cover-field">Cover letter <span>(optional)</span><textarea name="coverLetter" rows="4" maxlength="1200" placeholder="Why are you a good fit for this role?"></textarea></label>
+            <p class="application-notice" id="applicationNotice" aria-live="polite">Demo mode: submissions are saved only in this browser and are not sent to HR.</p>
+            <button class="submit-application" type="submit">Submit Application <span aria-hidden="true">&rarr;</span></button>
+        </form>
+    </dialog>
+    <script src="script.js"></script>
+</body>
+</html>
